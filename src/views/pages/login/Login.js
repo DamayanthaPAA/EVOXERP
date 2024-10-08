@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link ,useNavigate  } from 'react-router-dom'
+
 import {
   CButton,
   CCard,
@@ -16,7 +17,21 @@ import {
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 
+
 const Login = () => {
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    
+    // Simulated login check (in real scenarios, you'd check with a backend service)
+    // if (username === 'admin' && password === 'password') {
+      navigate('/dashboard'); // Redirect to home page after successful login
+    // } else {
+    //   setError('Invalid username or password');
+    // }
+  };
+
   return (
     <div className="bg-body-tertiary min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -46,7 +61,7 @@ const Login = () => {
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton color="primary" className="px-4">
+                        <CButton type="submit" color="primary" className="px-4" onClick={handleSubmit}>
                           Login
                         </CButton>
                       </CCol>

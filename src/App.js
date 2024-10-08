@@ -31,7 +31,7 @@ const App = () => {
 
     setColorMode(storedTheme)
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
-
+ 
   return (
     <HashRouter>
       <Suspense
@@ -42,6 +42,7 @@ const App = () => {
         }
       >
         <Routes>
+          <Route path="/" element={<Login />} />
           <Route exact path="/login" name="Login Page" element={<Login />} />
           <Route exact path="/register" name="Register Page" element={<Register />} />
           <Route exact path="/404" name="Page 404" element={<Page404 />} />
